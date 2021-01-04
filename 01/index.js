@@ -36,21 +36,22 @@ const renderBeers = (data) => {
     container.appendChild(fragment);
 }
 
-const success = (data) => {
-    const beers = JSON.parse(data.target.responseText);
-    renderBeers(beers);
-}
+const success = (response) => response.json();
 
 const error = (err) => {
     console.log(err);
 }
 
-const req = new XMLHttpRequest();
-req.onload = success;
-req.onerror = error;
+// fetch(API_URL)
+//     .then(success)
+//     .then(renderBeers)
+//     .catch(error)
 
-//req.addEventListener('load', success);
-//req.addEventListener('error', error);
 
-req.open('GET', API_URL);
-req.send();
+const getBeers = async () => {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    renderBeers(data)
+}
+
+getBeers();
