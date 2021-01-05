@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Average = styled.div`
   background-color: ${({ value }) => {
   if (value > 4) return '#00E08A';
-  if (value > 3) return '#FFD82B';
+  if (value >= 3) return '#FFD82B';
   if (value < 3) return '#FF442B';
   return 'lightgrey';
 }};

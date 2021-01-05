@@ -15,24 +15,28 @@ import {
   Scores,
   ScoresWrapper
 } from 'components/StudentForm/StudentForm.styles';
-
-let grade = yup.number();
-grade
-  .integer('Ocena musi być liczbowa')
-  .positive('Ocena musi być liczbą dodatnią')
-  .min(1, 'Ocena musi być wyższa od 0')
-  .max(6, 'Ocena musi być niższa od 7');
+import {api, endpoints} from "../../api";
 
 const StudentForm = () => {
-  const [scores, setScores] = useState([4,2,3,4,4,3,4]);
+  const [scores, setScores] = useState([]);
   const [scoreInputValue, setScoreInputValue] = useState('');
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => console.log({ ...data, scores });
   const [average, setAverage] = useState();
 
-  useEffect(() => {
-    setScores([4,2,3,4,4,3,4]);
-  }, []);
+  const onSubmit = ({name, age, group}) => {
+    api.post(endpoints.users, {
+      name,
+      group,
+      age: parseInt(age, 10),
+      grades: scores,
+    })
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  };
 
   useEffect(() => {
     setAverage(getGradesAvg(scores));
