@@ -19,7 +19,7 @@ const StudentsList = () => {
 
   return (
     <Wrapper>
-        {students.length
+        {students
             ? students.map(student => <StudentProfile key={student._id} studentData={student}/>)
             : <h2>No students available</h2>}
     </Wrapper>
