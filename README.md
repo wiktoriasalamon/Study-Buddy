@@ -17,3 +17,16 @@ II. Będąc w folderze `/suddybuddy-front`:
 
 1. `npm install`
 2. `npm run start`
+
+lub w katalogu głównym korzystając z obrazów dockerowych:
+```sh
+docker-compose up -d --build
+```
+
+Uwaga! Najpierw należy zbudować obrazy.
+### Budowanie obrazów dockerowych
+W katalogu głównym projektu:
+```sh
+docker build --file=studybuddy-api/api.dockerfile --rm=true -t studybuddy-api .
+docker build --file=studybuddy-front/front.dockerfile --rm=true -t studybuddy-front .
+```
