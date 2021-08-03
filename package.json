@@ -18,8 +18,13 @@
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "src/**/*.{js,json}": [
+    "src/**/*.{js, json}": [
       "prettier --write"
     ]
   },
