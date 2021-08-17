@@ -7,8 +7,8 @@ const UsersList = (props) => {
   return (
     <Wrapper>
       <StyledList>
-        {users.map((userData) => (
-          <UsersListItem userData={userData} />
+        {users.map((userData, id) => (
+          <UsersListItem userData={userData} index={id} />
         ))}
       </StyledList>
     </Wrapper>
