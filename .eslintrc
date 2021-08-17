@@ -7,7 +7,10 @@
     ],
     "plugins": ["prettier"],
     "rules": {
-        "prettier/prettier": ["error", {"singleQuote": true}]
+        "prettier/prettier": ["warn", {
+            "singleQuote": true,
+            "printWidth": 150
+        }]
     },
     "env": {
         "browser": true,
