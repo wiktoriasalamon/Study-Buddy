@@ -13,14 +13,17 @@ const Wrapper = styled.div`
   font-weight: 700;
   font-size: ${({ theme }) => theme.fontSize.m};
   background-color: ${({ average, theme }) => {
-    if (average < 3) {
-      return theme.colors.error;
+    if (average > 4) {
+      return theme.colors.succes;
     }
-    if (average < 4) {
+    if (average > 3) {
       return theme.colors.warning;
     }
+    if (average > 2) {
+      return theme.colors.error;
+    }
 
-    return theme.colors.success;
+    return theme.colors.grey;
   }};
 `;
 
@@ -29,7 +32,7 @@ const Average = ({ average }) => {
 };
 
 Average.propTypes = {
-  average: PropTypes.number.isRequired,
+  average: PropTypes.number,
 };
 
 export default Average;
