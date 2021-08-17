@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const UsersListItem = ({ userData: { name, attendance = '0%', average } }) => {
+const showIndex = (index) => alert(`This is student #${index}`);
+
+const UsersListItem = ({
+  index,
+  userData: { name, attendance = '0%', average },
+}) => {
   return (
     <li>
       <div>{average}</div>
@@ -15,6 +20,7 @@ const UsersListItem = ({ userData: { name, attendance = '0%', average } }) => {
 };
 
 UsersListItem.propTypes = {
+  index: PropTypes.number,
   userData: PropTypes.shape({
     name: PropTypes.string.isRequired,
     average: PropTypes.string.isRequired,
