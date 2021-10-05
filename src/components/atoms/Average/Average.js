@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   font-size: ${({ theme }) => theme.fontSize.m};
   background-color: ${({ average, theme }) => {
     if (average > 4) {
-      return theme.colors.succes;
+      return theme.colors.success;
     }
     if (average > 3) {
       return theme.colors.warning;
